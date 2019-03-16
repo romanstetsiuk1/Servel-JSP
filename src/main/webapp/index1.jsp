@@ -1,6 +1,8 @@
 <%@ page import="java.util.Random" %>
 <%@ page import="java.time.LocalDateTime" %>
-<%@ page import="java.time.format.DateTimeFormatter" %><%--
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.Arrays" %><%--
   Created by IntelliJ IDEA.
   User: roman
   Date: 16.03.19
@@ -41,6 +43,21 @@
     Time: <%=nowIs.getHour()%>:<%=nowIs.getMinute()%>:<%=nowIs.getSecond()%>
 </h4>
 
+
+<%--
+    Map i GET method
+    http://localhost:8080/index1.jsp?imie=ssdsd&nazwisko=ewew&imie=asdasd
+--%>
+<%
+    Map<String, String[]> mapa = request.getParameterMap();
+    for (Map.Entry<String, String[]> entry : mapa.entrySet()) {
+%>
+<p>
+    <%=entry.getKey() + "/" + Arrays.toString(entry.getValue())%>
+</p>
+<%
+    }
+%>
 
 </body>
 </html>
